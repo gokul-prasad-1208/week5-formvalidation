@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <textarea id="textarea" name="textarea" rows="4" cols="50">
+</textarea>
+<br>
+<p></p>
+<span id="count"></span><span>/300</span>
+    <span name="passworderror" id="passworderror"></span>
+</body>
+
+</html>
+<script>
+    // document.getElementById('passworderror').innerText = "password must be atleast 6 characters"
+    var count = document.getElementById("count")
+    count.innerText=0
+    var inputBox = document.getElementById('textarea');
+    inputBox.addEventListener('keyup', () => {
+        // console.log(inputBox.value.length)
+        count.innerText=inputBox.value.length
+        if(inputBox.value.length > 300){
+            alert("maximum limit exceed")
+            inputBox.disabled=true
+        }
+    })
+</script>

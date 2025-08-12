@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <a href="/task2.html">task2</a>
+    <form class="contact-form" id="contact-form">
+        <div><label class="label" for="">Name:</label>
+            <input type="text" class="input-name" name="" id="name">
+            <span name="nameerror" id="nameerror"></span>
+        </div>
+        <div><label class="label" for="">Email:</label>
+            <input type="emai" class="input-email" name="" id="email">
+            <span name="emailerror" id="emailerror"></span>
+        </div>
+        <div><label class="label" for="">password:</label>
+            <input type="text" class="input-message" name="" id="password">
+            <span name="passworderror" id="passworderror"></span>
+        </div>
+        <button class="submit-btn" id="button">Submit</button>
+    </form>
+</body>
+
+</html>
+
+<script>
+    let nameRegx = /[a-zA-Z0-9]+/
+    let emailRegx = /[a-zA-Z0-9]+@gmail.com$/
+    let passwordRegex = /[a-zA-Z0-9]{6}/
+    let fields = document.getElementsByTagName('input')
+    let nameValue = document.getElementById('name')
+    let emailValue = document.getElementById('email')
+    let passwordValue = document.getElementById('password')
+    var button = document.getElementById('button')
+    button.disabled = true
+    var isvalid = true
+    for (const item of fields) {
+        item.addEventListener('keyup', () => {
+            if (nameRegx.test(nameValue.value) == false) {
+                document.getElementById('nameerror').innerText = "name cannot be empty"
+                isvalid = false
+            } else {
+                document.getElementById('nameerror').innerText = ""
+                isvalid = true
+            }
+            if (emailRegx.test(emailValue.value) == false) {
+                document.getElementById('emailerror').innerText = "enter a value email"
+                isvalid = false
+            } else {
+                document.getElementById('emailerror').innerText = ""
+                isvalid = true
+            }
+            if (passwordRegex.test(passwordValue.value) == false) {
+                document.getElementById('passworderror').innerText = "password must be atleast 6 characters"
+                isvalid = false
+            } else {
+                document.getElementById('passworderror').innerText = ""
+                isvalid = true
+            }
+            if (isvalid) {
+            button.disabled = false
+        }
+        });
+        
+    }
+
+</script>
